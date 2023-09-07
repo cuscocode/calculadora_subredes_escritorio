@@ -1,0 +1,1 @@
+com.example.app_navigation_tabbed.clases_logica.direcionamiento_ip.clase_direccionamiento_ip

@@ -10,6 +10,7 @@ public class fmr_contendor extends javax.swing.JFrame {
     JPanel host = new panel_host();
     JPanel conversor = new panel_conversor();
     JPanel ayuda = new panel_ayuda();
+    JPanel buscarSubred = new panel_BuscarSubred();
 
     int x, y;
 
@@ -24,7 +25,6 @@ public class fmr_contendor extends javax.swing.JFrame {
         pack();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,6 +36,7 @@ public class fmr_contendor extends javax.swing.JFrame {
         rSButton4 = new rojeru_san.RSButton();
         rSButton5 = new rojeru_san.RSButton();
         rSButton6 = new rojeru_san.RSButton();
+        rSButton7 = new rojeru_san.RSButton();
         lbl_nombre_negocio2 = new javax.swing.JLabel();
         btnclose = new rojerusan.RSPanelImage();
         btnmin1 = new rojerusan.RSPanelImage();
@@ -82,7 +83,7 @@ public class fmr_contendor extends javax.swing.JFrame {
         });
 
         rSButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/network.png"))); // NOI18N
-        rSButton4.setText("Subredes");
+        rSButton4.setText("Buscar Subred");
         rSButton4.setFont(new java.awt.Font("Roboto Bold", 1, 13)); // NOI18N
         rSButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +109,15 @@ public class fmr_contendor extends javax.swing.JFrame {
             }
         });
 
+        rSButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/network.png"))); // NOI18N
+        rSButton7.setText("Subredes");
+        rSButton7.setFont(new java.awt.Font("Roboto Bold", 1, 13)); // NOI18N
+        rSButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
@@ -117,6 +127,7 @@ public class fmr_contendor extends javax.swing.JFrame {
             .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(rSButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(rSButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(rSButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,25 +135,27 @@ public class fmr_contendor extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addComponent(rSButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rSButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rSButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rSButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addComponent(rSButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rSButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rSButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         panel_padre.add(menu);
-        menu.setBounds(0, 0, 150, 460);
+        menu.setBounds(0, 0, 150, 530);
 
         lbl_nombre_negocio2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_nombre_negocio2.setForeground(new java.awt.Color(46, 79, 114));
         lbl_nombre_negocio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_nombre_negocio2.setText("CALCULADORA DE SUBREDES V1.0.0");
         panel_padre.add(lbl_nombre_negocio2);
-        lbl_nombre_negocio2.setBounds(150, 0, 500, 30);
+        lbl_nombre_negocio2.setBounds(260, 0, 500, 30);
 
         btnclose.setToolTipText("Cerrar");
         btnclose.setImagen(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close.png"))); // NOI18N
@@ -183,25 +196,30 @@ public class fmr_contendor extends javax.swing.JFrame {
         panel_contenedor.setBackground(new java.awt.Color(244, 248, 247));
         panel_contenedor.setLayout(new java.awt.CardLayout());
         panel_padre.add(panel_contenedor);
-        panel_contenedor.setBounds(150, 40, 810, 390);
+        panel_contenedor.setBounds(150, 40, 810, 460);
 
         lblurl2.setBackground(new java.awt.Color(255, 255, 255));
         lblurl2.setForeground(new java.awt.Color(46, 78, 114));
         lblurl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblurl2.setText("tel:+51940500006");
+        lblurl2.setText("tel:+51940 500 006");
         lblurl2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblurl2.setName(""); // NOI18N
+        lblurl2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblurl2MouseClicked(evt);
+            }
+        });
         panel_padre.add(lblurl2);
-        lblurl2.setBounds(820, 440, 140, 20);
+        lblurl2.setBounds(820, 510, 140, 20);
 
         lblurl1.setBackground(new java.awt.Color(255, 255, 255));
         lblurl1.setForeground(new java.awt.Color(46, 78, 114));
         lblurl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblurl1.setText("Universidad Tecnologica de los Andes - cusco");
+        lblurl1.setText("Corporacion CuscoCode.");
         lblurl1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblurl1.setName(""); // NOI18N
         panel_padre.add(lblurl1);
-        lblurl1.setBounds(170, 440, 260, 20);
+        lblurl1.setBounds(170, 510, 260, 20);
 
         lblurl3.setBackground(new java.awt.Color(255, 255, 255));
         lblurl3.setForeground(new java.awt.Color(46, 78, 114));
@@ -210,7 +228,7 @@ public class fmr_contendor extends javax.swing.JFrame {
         lblurl3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblurl3.setName(""); // NOI18N
         panel_padre.add(lblurl3);
-        lblurl3.setBounds(500, 440, 170, 20);
+        lblurl3.setBounds(500, 510, 170, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,7 +240,7 @@ public class fmr_contendor extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_padre, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+            .addComponent(panel_padre, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
         );
 
         pack();
@@ -279,7 +297,7 @@ public class fmr_contendor extends javax.swing.JFrame {
         panel_contenedor.removeAll();
         panel_contenedor.revalidate();
         panel_contenedor.repaint();
-        panel_contenedor.add(subredes);
+        panel_contenedor.add(buscarSubred);
         pack();
     }//GEN-LAST:event_rSButton4ActionPerformed
 
@@ -297,7 +315,7 @@ public class fmr_contendor extends javax.swing.JFrame {
         panel_contenedor.removeAll();
         panel_contenedor.revalidate();
         panel_contenedor.repaint();
-         panel_contenedor.add(conversor);
+        panel_contenedor.add(conversor);
         pack();
     }//GEN-LAST:event_rSButton5ActionPerformed
 
@@ -309,6 +327,18 @@ public class fmr_contendor extends javax.swing.JFrame {
         panel_contenedor.add(ayuda);
         pack();
     }//GEN-LAST:event_rSButton6ActionPerformed
+
+    private void rSButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton7ActionPerformed
+        panel_contenedor.removeAll();
+        panel_contenedor.revalidate();
+        panel_contenedor.repaint();
+        panel_contenedor.add(subredes);
+        pack();
+    }//GEN-LAST:event_rSButton7ActionPerformed
+
+    private void lblurl2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblurl2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblurl2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -361,5 +391,6 @@ public class fmr_contendor extends javax.swing.JFrame {
     private rojeru_san.RSButton rSButton4;
     private rojeru_san.RSButton rSButton5;
     private rojeru_san.RSButton rSButton6;
+    private rojeru_san.RSButton rSButton7;
     // End of variables declaration//GEN-END:variables
 }

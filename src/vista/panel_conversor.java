@@ -6,6 +6,7 @@
 package vista;
 
 import conversor.clase_binario_y_decimal;
+import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 
 /**
@@ -33,6 +34,35 @@ public class panel_conversor extends javax.swing.JPanel {
         }
 
         return resultado;
+    }
+
+    private void validaRango_decimal(java.awt.event.KeyEvent evt, JTextField txt) {
+        char c = evt.getKeyChar();
+        if (!((c >= '0' && c <= '9') || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }
+
+        // Obtener el texto actual en el JTextField
+        String currentText = txt.getText();
+
+        try {
+            // Concatenar el carácter ingresado al texto actual y convertirlo a un número
+            int value = Integer.parseInt(currentText + c);
+
+            // Verificar si el valor está en el rango de 0 a 255
+            if (value < 0 || value > 255) {
+                evt.consume(); // El valor está fuera del rango, consumir el evento
+            }
+        } catch (NumberFormatException ex) {
+            evt.consume(); // No se puede convertir a un número válido, consumir el evento
+        }
+    }
+
+    private void validaRango_binario(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if (c != '0' && c != '1') {
+            evt.consume(); // Consumir el evento si el carácter no es '0' o '1'
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -90,6 +120,9 @@ public class panel_conversor extends javax.swing.JPanel {
         txt_ip1.setPlaceholder("192");
         txt_ip1.setSoloNumeros(true);
         txt_ip1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_ip1FocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_ip1FocusLost(evt);
             }
@@ -127,6 +160,9 @@ public class panel_conversor extends javax.swing.JPanel {
         txt_ip2.setPlaceholder("168");
         txt_ip2.setSoloNumeros(true);
         txt_ip2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_ip2FocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_ip2FocusLost(evt);
             }
@@ -164,6 +200,9 @@ public class panel_conversor extends javax.swing.JPanel {
         txt_ip3.setPlaceholder("0");
         txt_ip3.setSoloNumeros(true);
         txt_ip3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_ip3FocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_ip3FocusLost(evt);
             }
@@ -196,6 +235,9 @@ public class panel_conversor extends javax.swing.JPanel {
         txt_ip4.setPlaceholder("1");
         txt_ip4.setSoloNumeros(true);
         txt_ip4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_ip4FocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_ip4FocusLost(evt);
             }
@@ -392,6 +434,9 @@ public class panel_conversor extends javax.swing.JPanel {
         txt_bi1.setPlaceholder("00000000");
         txt_bi1.setSoloNumeros(true);
         txt_bi1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_bi1FocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_bi1FocusLost(evt);
             }
@@ -424,6 +469,9 @@ public class panel_conversor extends javax.swing.JPanel {
         txt_bi2.setPlaceholder("00000000");
         txt_bi2.setSoloNumeros(true);
         txt_bi2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_bi2FocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_bi2FocusLost(evt);
             }
@@ -466,6 +514,9 @@ public class panel_conversor extends javax.swing.JPanel {
         txt_bi3.setPlaceholder("00000000");
         txt_bi3.setSoloNumeros(true);
         txt_bi3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_bi3FocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_bi3FocusLost(evt);
             }
@@ -498,6 +549,9 @@ public class panel_conversor extends javax.swing.JPanel {
         txt_bi4.setPlaceholder("00000000");
         txt_bi4.setSoloNumeros(true);
         txt_bi4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_bi4FocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_bi4FocusLost(evt);
             }
@@ -593,7 +647,7 @@ public class panel_conversor extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl_nombre_negocio3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lcodigo22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_bi1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -612,6 +666,7 @@ public class panel_conversor extends javax.swing.JPanel {
 
     private void txt_ip1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ip1FocusLost
         // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_ip1FocusLost
 
     private void txt_ip1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ip1ActionPerformed
@@ -619,20 +674,12 @@ public class panel_conversor extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_ip1ActionPerformed
 
     private void txt_ip1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ip1KeyPressed
-        try {
-            if (txt_ip1.getText().equals("")) {
-                lb_1.setText("00000000");
-            }
-            int arreglo[] = claseConversor.get_arreglo_decimal_a_binario(Integer.parseInt(txt_ip1.getText()));
-            lb_1.setText(convertirArreglo_a_cadena(arreglo));
-        } catch (Exception e) {
-            lb_1.setText("00000000");
-            System.out.println("ocurrio un error:" + e);
-        }
+
     }//GEN-LAST:event_txt_ip1KeyPressed
 
     private void txt_ip1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ip1KeyTyped
 
+        validaRango_decimal(evt, txt_ip1);
     }//GEN-LAST:event_txt_ip1KeyTyped
 
     private void txt_ip2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ip2FocusLost
@@ -649,6 +696,7 @@ public class panel_conversor extends javax.swing.JPanel {
 
     private void txt_ip2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ip2KeyTyped
         // TODO add your handling code here:
+        validaRango_decimal(evt, txt_ip2);
     }//GEN-LAST:event_txt_ip2KeyTyped
 
     private void txt_ip3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ip3FocusLost
@@ -665,6 +713,7 @@ public class panel_conversor extends javax.swing.JPanel {
 
     private void txt_ip3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ip3KeyTyped
         // TODO add your handling code here:
+        validaRango_decimal(evt, txt_ip3);
     }//GEN-LAST:event_txt_ip3KeyTyped
 
     private void txt_ip4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ip4FocusLost
@@ -681,11 +730,21 @@ public class panel_conversor extends javax.swing.JPanel {
 
     private void txt_ip4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ip4KeyTyped
         // TODO add your handling code here:
+        validaRango_decimal(evt, txt_ip4);
     }//GEN-LAST:event_txt_ip4KeyTyped
 
     private void txt_ip1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ip1KeyReleased
         // TODO add your handling code here:
-
+        try {
+            if (txt_ip1.getText().equals("")) {
+                lb_1.setText("00000000");
+            }
+            int arreglo[] = claseConversor.get_arreglo_decimal_a_binario(Integer.parseInt(txt_ip1.getText()));
+            lb_1.setText(convertirArreglo_a_cadena(arreglo));
+        } catch (Exception e) {
+            lb_1.setText("00000000");
+            System.out.println("ocurrio un error:" + e);
+        }
     }//GEN-LAST:event_txt_ip1KeyReleased
 
     private void txt_ip2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ip2KeyReleased
@@ -747,7 +806,7 @@ public class panel_conversor extends javax.swing.JPanel {
 
         try {
             if (txt_bi1.getText().equals("")) {
-                lb_1.setText("0");
+                lb_b1.setText("0");
             }
             long resultado = claseConversor.convertirBinarioADecimalManual(txt_bi1.getText());
             lb_b1.setText(resultado + "");
@@ -759,6 +818,7 @@ public class panel_conversor extends javax.swing.JPanel {
 
     private void txt_bi1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_bi1KeyTyped
         // TODO add your handling code here:
+        validaRango_binario(evt);
     }//GEN-LAST:event_txt_bi1KeyTyped
 
     private void txt_bi2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_bi2FocusLost
@@ -777,7 +837,7 @@ public class panel_conversor extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             if (txt_bi2.getText().equals("")) {
-                lb_2.setText("0");
+                lb_b2.setText("0");
             }
             long resultado = claseConversor.convertirBinarioADecimalManual(txt_bi2.getText());
             lb_b2.setText(resultado + "");
@@ -789,6 +849,7 @@ public class panel_conversor extends javax.swing.JPanel {
 
     private void txt_bi2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_bi2KeyTyped
         // TODO add your handling code here:
+        validaRango_binario(evt);
     }//GEN-LAST:event_txt_bi2KeyTyped
 
     private void txt_bi3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_bi3FocusLost
@@ -807,10 +868,10 @@ public class panel_conversor extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             if (txt_bi3.getText().equals("")) {
-                lb_3.setText("0");
+                lb_b3.setText("0");
             }
             long resultado = claseConversor.convertirBinarioADecimalManual(txt_bi3.getText());
-            lb_b1.setText(resultado + "");
+            lb_b3.setText(resultado + "");
         } catch (Exception e) {
             lb_b3.setText("0");
             System.out.println("ocurrio un error:" + e);
@@ -819,6 +880,7 @@ public class panel_conversor extends javax.swing.JPanel {
 
     private void txt_bi3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_bi3KeyTyped
         // TODO add your handling code here:
+        validaRango_binario(evt);
     }//GEN-LAST:event_txt_bi3KeyTyped
 
     private void txt_bi4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_bi4FocusLost
@@ -837,7 +899,7 @@ public class panel_conversor extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             if (txt_bi4.getText().equals("")) {
-                lb_4.setText("0");
+                lb_b4.setText("0");
             }
             long resultado = claseConversor.convertirBinarioADecimalManual(txt_bi4.getText());
             lb_b4.setText(resultado + "");
@@ -849,7 +911,67 @@ public class panel_conversor extends javax.swing.JPanel {
 
     private void txt_bi4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_bi4KeyTyped
         // TODO add your handling code here:
+        validaRango_binario(evt);
     }//GEN-LAST:event_txt_bi4KeyTyped
+
+    private void txt_ip1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ip1FocusGained
+        // TODO add your handling code here:
+        if (txt_ip1.getText().equals("")) {
+            lb_1.setText("00000000");
+        }
+    }//GEN-LAST:event_txt_ip1FocusGained
+
+    private void txt_ip2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ip2FocusGained
+        // TODO add your handling code here:
+        if (txt_ip2.getText().equals("")) {
+            lb_2.setText("00000000");
+        }
+    }//GEN-LAST:event_txt_ip2FocusGained
+
+    private void txt_ip3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ip3FocusGained
+        // TODO add your handling code here:
+        if (txt_ip3.getText().equals("")) {
+            lb_3.setText("00000000");
+        }
+    }//GEN-LAST:event_txt_ip3FocusGained
+
+    private void txt_ip4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_ip4FocusGained
+        // TODO add your handling code here:
+        if (txt_ip4.getText().equals("")) {
+            lb_4.setText("00000000");
+        }
+    }//GEN-LAST:event_txt_ip4FocusGained
+
+    private void txt_bi1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_bi1FocusGained
+        // TODO add your handling code here:
+        if (txt_bi1.getText().equals("")) {
+            lb_b1.setText("0");
+        }
+
+    }//GEN-LAST:event_txt_bi1FocusGained
+
+    private void txt_bi2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_bi2FocusGained
+        // TODO add your handling code here:
+
+        if (txt_bi2.getText().equals("")) {
+            lb_b2.setText("0");
+        }
+    }//GEN-LAST:event_txt_bi2FocusGained
+
+    private void txt_bi3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_bi3FocusGained
+        // TODO add your handling code here:
+
+        if (txt_bi3.getText().equals("")) {
+            lb_b3.setText("0");
+        }
+    }//GEN-LAST:event_txt_bi3FocusGained
+
+    private void txt_bi4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_bi4FocusGained
+        // TODO add your handling code here:
+        if (txt_bi4.getText().equals("")) {
+            lb_b4.setText("0");
+        }
+    }//GEN-LAST:event_txt_bi4FocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

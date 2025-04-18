@@ -1,6 +1,7 @@
-package redireccionamiento_ip;
+package direccionamiento;
 
 import conversor.clase_binario_y_decimal;
+
 /**
  * @author raul hacho cutipa
  */
@@ -11,7 +12,7 @@ public class clase_direccionamiento_ip {
     private int ip1, ip2, ip3, ip4, prefijo;
     private int mas1, mas2, mas3, mas4;
     private int bro1, bro2, bro3, bro4;
-    private int nro_maquinas,nro_subres;
+    private int nro_maquinas, nro_subres;
     //mascaras
     private int arreglo_mascara[] = new int[32];
     private int arreglo_idred[] = new int[32];
@@ -201,8 +202,9 @@ public class clase_direccionamiento_ip {
 
         limiteSuperior = clase_binario_y_decimal.get_arreglo_binario32_a_decimalString(arreglo_limite_superior);
     }
+
     private void numero_de_maquinas() {
-        nro_maquinas = (int) Math.pow(2, 32 - prefijo)-2;
+        nro_maquinas = (int) Math.pow(2, 32 - prefijo) - 2;
     }
 
     private void numero_De_subredes() {
@@ -217,23 +219,99 @@ public class clase_direccionamiento_ip {
             nro_subres = (int) Math.pow(2, prefijo - 24) - 2;
         }
     }
+
     //=======================================================================
+    public String[] get_resultadoDecimal() {
+        String Resultados[] = new String[9];
+
+        //recuperar resultados
+        ipaux();
+        mascaraAux();
+        idredAux();
+        broakcastAux();
+        gatewayAux();
+        limite_inferior();
+        limite_superior();
+        numero_de_maquinas();
+
+        Resultados[0] = clase_binario_y_decimal.get_arreglo_binario32_a_decimalString(arregloIP) + "/" + prefijo;
+        Resultados[1] = mascara;
+        Resultados[2] = get_clase_de_red();
+        Resultados[3] = id_de_red;
+        Resultados[4] = gateway;
+        Resultados[5] = broacats;
+
+        Resultados[6] = limiteInferior;
+        Resultados[7] = limiteSuperior;
+        Resultados[8] = nro_maquinas + "";
+
+        return Resultados;
+    }
+
+    public String[] get_resultadoBinario() {
+        String Resultados[] = new String[7];
+
+        //recuperar resultados
+        ipaux();
+        mascaraAux();
+        idredAux();
+        gatewayAux();
+        broakcastAux();
+        limite_inferior();
+        limite_superior();
+
+        Resultados[0] = clase_binario_y_decimal.get_arreglo_binario32_a_binarioString(arregloIP);
+        Resultados[1] = clase_binario_y_decimal.get_arreglo_binario32_a_binarioString(arreglo_mascara);
+        Resultados[2] = clase_binario_y_decimal.get_arreglo_binario32_a_binarioString(arreglo_idred);
+        Resultados[3] = clase_binario_y_decimal.get_arreglo_binario32_a_binarioString(arreglo_gateway);
+        Resultados[4] = clase_binario_y_decimal.get_arreglo_binario32_a_binarioString(arreglo_broadcast);
+        Resultados[5] = clase_binario_y_decimal.get_arreglo_binario32_a_binarioString(arreglo_limite_inferior);
+        Resultados[6] = clase_binario_y_decimal.get_arreglo_binario32_a_binarioString(arreglo_limite_superior);
+        return Resultados;
+
+    }
 
     public String get_numero_de_maquinas() {
         numero_de_maquinas();
         return "NUMERO DE HOST DISPONIBLES: " + nro_maquinas;
     }
+
     public String get_numero_de_subredes() {
         numero_De_subredes();
-        if (nro_subres!=0) {
-            return "NUMERO DE SUBREDES DISPONIBLES: " +nro_subres;
-        }else{
+        if (nro_subres != 0) {
+            return "NUMERO DE SUBREDES DISPONIBLES: " + nro_subres;
+        } else {
             return "";
         }
     }
 
     public String get_clase_de_red() {
         clase = "";
+        if (ip1 >= 1 && ip1 <= 127) {
+            clase = "A";
+
+        }
+        if (ip1 >= 128 && ip1 <= 191) {
+            clase = "B";
+
+        }
+        if (ip1 >= 192 && ip1 <= 223) {
+            clase = "C";
+
+        }
+        if (ip1 >= 224 && ip1 <= 239) {
+            clase = "D";
+        }
+        if (ip1 >= 240 && ip1 <= 255) {
+            clase = "E";
+        }
+        return clase;
+    }
+    
+    
+    
+    public static String obtenerClaseDeRed(int ip1) {
+        String clase = "";
         if (ip1 >= 1 && ip1 <= 127) {
             clase = "A";
 
@@ -328,14 +406,4 @@ public class clase_direccionamiento_ip {
         return clase_binario_y_decimal.get_arreglo_binario32_a_binarioString(arreglo_mascara);
     }
 
-    /*public String prueba() {
-        ipaux();
-        String a = "";
-        for (int i = 0; i < 8; i++) {
-            a = a + arregloip1[i];
-        }
-
-        a = a + "   /" + ip1;
-        return a;
-    }*/
 }

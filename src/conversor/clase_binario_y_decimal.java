@@ -6,7 +6,8 @@ import java.math.BigInteger;
  * @author raul hacho cutipa
  */
 public class clase_binario_y_decimal {
-
+    
+    
     private int arreglo_binario[] = new int[8];
     static int decimal;
 

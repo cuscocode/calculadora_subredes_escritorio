@@ -36,7 +36,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panel_padre" alignment="0" pref="462" max="32767" attributes="0"/>
+          <Component id="panel_padre" alignment="0" pref="534" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -67,7 +67,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="150" height="460"/>
+              <AbsoluteConstraints x="0" y="0" width="150" height="530"/>
             </Constraint>
           </Constraints>
 
@@ -79,6 +79,7 @@
                   <Component id="rSButton3" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                   <Component id="rSButton5" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                   <Component id="rSButton6" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                  <Component id="rSButton7" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -87,14 +88,16 @@
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="rSButton2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="rSButton4" min="-2" max="-2" attributes="0"/>
+                      <Component id="rSButton7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="rSButton4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Component id="rSButton3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="rSButton5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="rSButton6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="201" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -133,7 +136,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/imagenes/network.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Subredes"/>
+                <Property name="text" type="java.lang.String" value="Buscar Subred"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto Bold" size="13" style="1"/>
                 </Property>
@@ -170,6 +173,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButton6ActionPerformed"/>
               </Events>
             </Component>
+            <Component class="rojeru_san.RSButton" name="rSButton7">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/network.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Subredes"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Roboto Bold" size="13" style="1"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButton7ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="lbl_nombre_negocio2">
@@ -185,7 +202,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="150" y="0" width="500" height="30"/>
+              <AbsoluteConstraints x="260" y="0" width="500" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -237,7 +254,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="150" y="40" width="810" height="390"/>
+              <AbsoluteConstraints x="150" y="40" width="810" height="460"/>
             </Constraint>
           </Constraints>
 
@@ -252,15 +269,18 @@
               <Color blue="72" green="4e" red="2e" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="tel:+51940500006"/>
+            <Property name="text" type="java.lang.String" value="tel:+51940 500 006"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
             </Property>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblurl2MouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="820" y="440" width="140" height="20"/>
+              <AbsoluteConstraints x="820" y="510" width="140" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -273,7 +293,7 @@
               <Color blue="72" green="4e" red="2e" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Universidad Tecnologica de los Andes - cusco"/>
+            <Property name="text" type="java.lang.String" value="Corporacion CuscoCode."/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
             </Property>
@@ -281,7 +301,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="170" y="440" width="260" height="20"/>
+              <AbsoluteConstraints x="170" y="510" width="260" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -302,7 +322,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="500" y="440" width="170" height="20"/>
+              <AbsoluteConstraints x="500" y="510" width="170" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
